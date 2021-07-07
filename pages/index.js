@@ -2,8 +2,9 @@ import { useState } from "react";
 import { PrismaClient } from "@prisma/client";
 
 export default function Home({ posts }) {
+  console.log(posts);
   return (
-    <div>
+    <div className="app">
       i am the home page
       {/* loop over the posts */}
       {posts.map((post, index) => (
@@ -31,10 +32,9 @@ function Post({ post }) {
   }
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="post">
       <h1>{post.title}</h1>
-      <button onClick={() => like(post.id)}>❤️</button>
-      <div>{likes}</div>
+      <button onClick={() => like(post.id)}>❤️ {likes}</button>
     </div>
   );
 }
